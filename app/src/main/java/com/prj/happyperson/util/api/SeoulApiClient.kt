@@ -2,19 +2,20 @@ package com.prj.happyperson.util.api
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 class SeoulApiClient {
 
     companion object {
-        private val BASE_URL = "https://api.github.com"
+        private val BASE_URL = "http://openapi.seoul.go.kr:8088"
 
-        fun getApi() : GithubApi = Retrofit.Builder()
+        fun getApi() : SeoulApi = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(OkHttpClient())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(GithubApi::class.java)
+            .create(SeoulApi::class.java)
     }
 }
