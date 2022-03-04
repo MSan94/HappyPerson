@@ -10,7 +10,7 @@ interface SeoulApi {
     /**
      * 모든 박람회 불러오기
      */
-    @GET("{key}/json/JobFairInfo/{START_INDEX}/{END_INDEX}/")
+    @GET("{KEY}/json/JobFairInfo/{START_INDEX}/{END_INDEX}/")
     fun getAllFestival(
         @Path("KEY") key : String,
         @Path("START_INDEX") start_Index : Int,
